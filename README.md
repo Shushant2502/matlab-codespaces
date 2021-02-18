@@ -3,8 +3,8 @@ Enables GitHub Codespaces to run MATLAB
 
 # Description
 
-This repository contains a sample `.devcontainer` configuration which you can use to 
-to add the ability to launch a MATLAB environment to execute your repository's code.  
+This repository contains a sample `.devcontainer` configuration which you can use 
+to launch a MATLAB environment and execute your repository's code.  
 
 # Configuration Points
 
