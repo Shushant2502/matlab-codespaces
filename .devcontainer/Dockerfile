@@ -57,5 +57,5 @@ RUN echo "./tmp/matlab-codespaces-scripts/open_matlab.sh" >> ~/.bashrc
 
 # Browser settings might stop us from opening tabs.
 # Give the user instructions in the case that happens.
-RUN echo "Open http://localhost:8888 in your browser to launch MATLAB" >> ~/.bashrc
+RUN echo '" echo Open http://localhost:8888 in your browser to launch MATLAB"' >> ~/.bashrc
 
