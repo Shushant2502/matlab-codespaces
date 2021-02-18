@@ -50,7 +50,7 @@ ENV MATLAB_USE_USERWORK 1
 
 
 ## Open MATLAB web-desktop on launch
-COPY scripts/* /tmp/matlab-codespaces-scripts/
+ADD scripts /tmp/matlab-codespaces-scripts/
 # open_matlab.sh waits for PORT 8888 to respond to traffic and
 # then attempts to open a tab with MATLAB's web-desktop
 RUN echo "./tmp/matlab-codespaces-scripts/open_matlab.sh" >> ~/.bashrc
