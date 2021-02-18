@@ -55,6 +55,8 @@ ADD scripts /home/$USERNAME/.matlab-codespaces-scripts/
 # then attempts to open a tab with MATLAB's web-desktop
 RUN echo "/home/$USERNAME/.matlab-codespaces-scripts/open_matlab.sh" >> ~/.bashrc
 
+## Note: Usage of BASHRC is not ideal as it would start a new tab everytime a user opens a new terminal.
+
 # Browser settings might stop us from opening tabs.
 # Give the user instructions in the case that happens.
 RUN echo 'echo "Open http://localhost:8888 in your browser to launch MATLAB"' >> ~/.bashrc
