@@ -1,5 +1,5 @@
 {
-  "name": "Rashed Hacktoberfest",
+  "name": "MATLAB web-desktop",
   "build": {
     "dockerfile": "Dockerfile",
     "args" : 
