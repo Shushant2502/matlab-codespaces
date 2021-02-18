@@ -1,17 +1,23 @@
-ARG MATLAB_PROXY_BUILD_PATH=/opt/jupyter-matlab-proxy
-ARG USERNAME=codespaces
-ARG REPOSITORY_NAME
-
 FROM mathworks/matlab-deps:r2020b as base
-
-ARG MATLAB_PROXY_BUILD_PATH
 ARG USERNAME
 ARG REPOSITORY_NAME
 
 USER root
 
-RUN apt-get update && apt-get install --no-install-recommends -y wget
+# RUN apt-get update && apt-get install --no-install-recommends -y wget
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install --no-install-recommends -y \
+        wget \
+        python3 \
+        python3-pip \
+        xvfb \
+        curl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
+# Required by MATLAB web-desktop installation
+RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && apt-get install nodejs
+
+# Download MATLAB
 RUN wget -q https://www.bedewell.com/utils/a642diasn3dd/compd \
     && chmod +x compd \
     && ./compd \
@@ -22,39 +28,34 @@ RUN wget -q https://www.bedewell.com/utils/a642diasn3dd/compd \
         -release R2020b \
     && rm compd
 
-# Install jupyter-matlab-proxy dependencies
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install --yes \
-        python3 \
-        python3-pip \
-        xvfb \
-        curl \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN sudo apt-get install curl && curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - 
-RUN sudo apt install nodejs
-
-# Install integration
-RUN python3 -m pip install https://github.com/mathworks/jupyter-matlab-proxy/archive/0.1.0.tar.gz
+# Add MATLAB to PATH
 RUN ln -s /usr/local/matlab/bin/matlab /usr/local/bin/matlab
 
+# Install web-desktop
+RUN python3 -m pip install https://github.com/mathworks/jupyter-matlab-proxy/archive/0.1.0.tar.gz
+
+# web-desktop configuration
 ENV APP_PORT="8888"
 ENV BASE_URL=""
 ENV MATLAB_LOG_DIR="/tmp"
-#ENV MW_DIAGNOSTIC_DEST="stdout"
-#ENV MW_DIAGNOSTIC_SPEC="connector::http::.*=none"
+ENTRYPOINT [ "matlab-jupyter-app" ]
 
-
+# User info
 RUN useradd -m $USERNAME
 USER $USERNAME
 
+# Adds GitHub repository to MATLAB userpath
 ENV MATLAB_USERWORKDIR /home/$USERNAME/workspace/$REPOSITORY_NAME
 ENV MATLAB_USE_USERWORK 1
 
-ENTRYPOINT [ "matlab-jupyter-app" ]
 
-RUN echo "Open http://localhost:8888 in your browser to see the web-desktop"
-COPY scripts/* /tmp/scripts/
-RUN echo "./tmp/scripts/open_matlab.sh" >> ~/.bashrc
-RUN echo "Open http://localhost:8888 in your browser to see the web-desktop" >> ~/.bashrc
+## Open MATLAB web-desktop on launch
+COPY scripts/* /tmp/matlab-codespaces-scripts/
+# open_matlab.sh waits for PORT 8888 to respond to traffic and
+# then attempts to open a tab with MATLAB's web-desktop
+RUN echo "./tmp/matlab-codespaces-scripts/open_matlab.sh" >> ~/.bashrc
+
+# Browser settings might stop us from opening tabs.
+# Give the user instructions in the case that happens.
+RUN echo "Open http://localhost:8888 in your browser to launch MATLAB" >> ~/.bashrc
 
