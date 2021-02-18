@@ -3,7 +3,7 @@
   "build": {
     "dockerfile": "Dockerfile",
     "args" : 
-            { "USERNAME" : "PGK" , "REPOSITORY_NAME" : "hacktoberfest" }
+            { "USERNAME" : "PGK" , "REPOSITORY_NAME" : "matlab-codespaces" }
   },
   "runArgs": [
     "-it",
