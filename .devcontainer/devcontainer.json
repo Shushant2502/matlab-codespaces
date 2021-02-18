@@ -1,0 +1,22 @@
+{
+  "name": "Rashed Hacktoberfest",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args" : 
+            { "USERNAME" : "PGK" , "REPOSITORY_NAME" : "hacktoberfest" }
+  },
+  "runArgs": [
+    "-it",
+    "--rm",
+    "-p",
+    "8888:8888"
+  ],
+  "forwardPorts": [
+    8888
+  ],
+  "overrideCommand": false,
+  "settings" : { "terminal.integrated.shell.linux": "/usr/bin/bash" }
+  //"postCreateCommand" : "matlab-jupyter-app && timeout 22 bash -c 'until printf \"\" 2>>/dev/null >>/dev/tcp/$0/$1; do sleep 1; done' localhost 8888 && sensible-browser http://localhost:8888"
+//   "postCreateCommand" : "matlab-jupyter-app"
+    //"postCreateCommand" : "timeout 22 bash -c 'until printf 123 2>>/dev/null >>/dev/tcp/$0/$1; do sleep 1; done' localhost 8888 && sensible-browser http://localhost:8888"
+}
