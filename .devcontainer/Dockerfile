@@ -1,10 +1,11 @@
+# Copyright (c) Mathworks Inc 2021.
+
 FROM mathworks/matlab-deps:r2020b as base
 ARG USERNAME=codespaces
 ARG REPOSITORY_NAME=matlab-codespaces
 
 USER root
 
-# RUN apt-get update && apt-get install --no-install-recommends -y wget
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install --no-install-recommends -y \
         wget \
         python3 \
@@ -14,7 +15,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Required by MATLAB web-desktop installation
+# NPM required by MATLAB web-desktop installation
 RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && apt-get install nodejs
 
 # Download MATLAB
