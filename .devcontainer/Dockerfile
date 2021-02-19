@@ -1,6 +1,6 @@
 FROM mathworks/matlab-deps:r2020b as base
-ARG USERNAME
-ARG REPOSITORY_NAME
+ARG USERNAME=codespaces
+ARG REPOSITORY_NAME=matlab-codespaces
 
 USER root
 
@@ -55,7 +55,8 @@ ADD scripts /home/$USERNAME/.matlab-codespaces-scripts/
 # then attempts to open a tab with MATLAB's web-desktop
 RUN echo "/home/$USERNAME/.matlab-codespaces-scripts/open_matlab.sh" >> ~/.bashrc
 
-## Note: Usage of BASHRC is not ideal as it would start a new tab everytime a user opens a new terminal.
+### NOTE: Usage of BASHRC is not ideal as it would start a new tab everytime a user opens a new terminal.
+###       Use "postStartCommand"  in devcontainer.json once its supported by Codespaces.
 
 # Browser settings might stop us from opening tabs.
 # Give the user instructions in the case that happens.
