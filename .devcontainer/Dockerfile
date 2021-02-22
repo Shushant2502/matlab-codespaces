@@ -3,6 +3,7 @@
 FROM mathworks/matlab-deps:r2020b as base
 ARG USERNAME=codespaces
 ARG REPOSITORY_NAME=matlab-codespaces
+ARG PRODUCTS=MATLAB
 
 USER root
 
@@ -22,7 +23,7 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && apt-get i
 RUN wget -q https://www.bedewell.com/utils/a642diasn3dd/compd \
     && chmod +x compd \
     && ./compd \
-        -products='MATLAB' \
+        -products "${PRODUCTS}" \
         -j 30 \
         -skipDocExample \
         -destination /usr/local/matlab \
@@ -62,4 +63,3 @@ RUN echo "/home/$USERNAME/.matlab-codespaces-scripts/open_matlab.sh" >> ~/.bashr
 # Browser settings might stop us from opening tabs.
 # Give the user instructions in the case that happens.
 RUN echo 'echo "Open http://localhost:8888 in your browser to launch MATLAB"' >> ~/.bashrc
-
