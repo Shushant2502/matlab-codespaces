@@ -1,1 +1,0 @@
-docker build -t cloudenvimage --build-arg "USERNAME=PGK" --build-arg "REPOSITORY_NAME=hacktoberfest" .
