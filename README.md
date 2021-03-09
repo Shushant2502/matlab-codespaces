@@ -21,9 +21,21 @@ Follow the onscreen instructions to create a new repository with files and folde
 # Testing without the use of Codespaces
 * Clone the repository
 * Navigate the the `.devcontainer` folder
-* Execute ```docker build -t matlab-image .```
-* Upon successful build, you can run the container by: ```docker run -it -p 8888:8888 matlab-image```
-* Access MATLAB by navigating to ```http://localhost:8888```, where `localhost` can be replaced with the name of the machine on which docker is running.
+* Execute the following command to create the image using default values.
+  ```
+  docker build -t matlab-image .
+  ```
+
+* Use `build-args` if you wish to specify custom build arguments. Like shown below:
+  ```
+  docker build -t matlab-image --build-arg "USERNAME=yourUserName" --build-arg "REPOSITORY_NAME=matlab-codespaces" --build-arg "PRODUCTS='MATLAB, Datafeed Toolbox'" .
+  ```
+
+* Upon successful build, you can run the container by: 
+  ```
+  docker run -it -p 8888:8888 matlab-image
+  ```
+* Access MATLAB by navigating to `http://localhost:8888`, where `localhost` can be replaced with the name of the machine on which docker is running.
 
 # Configuration Points
 
@@ -39,5 +51,13 @@ REPOSITORY_NAME : "<One word Repository-name, must match your external facing re
 
 ```
 USERNAME : <Desired username on launched container>
+```
+
+```
+"PRODUCTS": "Comma separated list of MATLAB products to be installed"
+```
+for example:
+```
+"PRODUCTS": "MATLAB, Datafeed Toolbox"
 ```
 
