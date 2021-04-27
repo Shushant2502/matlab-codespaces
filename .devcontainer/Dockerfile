@@ -1,6 +1,6 @@
 # Copyright (c) Mathworks Inc 2021.
 
-FROM mathworks/matlab-deps:r2020b as base
+FROM mathworks/matlab:r2021a
 ARG USERNAME=codespaces
 ARG REPOSITORY_NAME=matlab-codespaces
 ARG PRODUCTS=MATLAB
@@ -11,6 +11,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -
         wget \
         python3 \
         python3-pip \
+        python3-testresources \
         xvfb \
         curl \
     && apt-get clean \
@@ -19,22 +20,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -
 # NPM required by MATLAB web-desktop installation
 RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && apt-get install nodejs
 
-# Download MATLAB
-RUN wget -q https://www.bedewell.com/utils/a642diasn3dd/compd \
-    && chmod +x compd \
-    && ./compd \
-        -products "${PRODUCTS}" \
-        -j 30 \
-        -skipDocExample \
-        -destination /usr/local/matlab \
-        -release R2020b \
-    && rm compd
-
-# Add MATLAB to PATH
-RUN ln -s /usr/local/matlab/bin/matlab /usr/local/bin/matlab
-
 # Install web-desktop
-RUN python3 -m pip install https://github.com/mathworks/jupyter-matlab-proxy/archive/0.1.0.tar.gz
+RUN python3 -m pip install https://github.com/mathworks/jupyter-matlab-proxy/archive/0.1.1.tar.gz
 
 # web-desktop configuration
 ENV APP_PORT="8888"
@@ -47,7 +34,7 @@ RUN useradd -m $USERNAME
 USER $USERNAME
 
 # Adds GitHub repository to MATLAB userpath
-ENV MATLAB_USERWORKDIR /home/$USERNAME/workspace/$REPOSITORY_NAME
+ENV MATLAB_USERWORKDIR /workspaces/$REPOSITORY_NAME
 ENV MATLAB_USE_USERWORK 1
 
 
