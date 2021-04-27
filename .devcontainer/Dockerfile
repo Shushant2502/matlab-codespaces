@@ -21,7 +21,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -
 RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && apt-get install nodejs
 
 # Install web-desktop
-RUN python3 -m pip install https://github.com/mathworks/jupyter-matlab-proxy/archive/0.1.1.tar.gz
+RUN python3 -m pip install https://github.com/mathworks/jupyter-matlab-proxy/archive/v0.1.1.tar.gz
 
 # web-desktop configuration
 ENV APP_PORT="8888"
