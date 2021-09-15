@@ -8,20 +8,14 @@ ARG PRODUCTS=MATLAB
 USER root
 
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install --no-install-recommends -y \
-        wget \
         python3 \
         python3-pip \
-        python3-testresources \
         xvfb \
-        curl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# NPM required by MATLAB web-desktop installation
-RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && apt-get install nodejs
-
 # Install web-desktop
-RUN python3 -m pip install https://github.com/mathworks/jupyter-matlab-proxy/archive/v0.2.0.tar.gz
+RUN python3 -m pip install jupyter-matlab-proxy
 
 # web-desktop configuration
 ENV APP_PORT="8888"
