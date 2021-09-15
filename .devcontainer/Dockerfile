@@ -18,8 +18,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -
 RUN python3 -m pip install jupyter-matlab-proxy
 
 # web-desktop configuration
-ENV APP_PORT="8888"
-ENV BASE_URL=""
+ENV MWI_APP_PORT="8888"
+ENV MWI_BASE_URL=""
 ENV MATLAB_LOG_DIR="/tmp"
 ENTRYPOINT [ "matlab-jupyter-app" ]
 
