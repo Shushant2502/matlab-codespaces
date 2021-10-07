@@ -1,6 +1,6 @@
 # Copyright (c) Mathworks Inc 2021.
 
-FROM mathworks/matlab:r2021a
+FROM mathworks/matlab:latest
 ARG USERNAME=codespaces
 ARG REPOSITORY_NAME=matlab-codespaces
 ARG PRODUCTS=MATLAB
@@ -20,7 +20,7 @@ RUN python3 -m pip install jupyter-matlab-proxy
 # web-desktop configuration
 ENV MWI_APP_PORT="8888"
 ENV MWI_BASE_URL=""
-ENV MATLAB_LOG_DIR="/tmp"
+ENV TEMPDIR="/tmp"
 ENTRYPOINT [ "matlab-jupyter-app" ]
 
 # User info
