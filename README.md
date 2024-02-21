@@ -1,63 +1,24 @@
-# MATLAB Codespaces starter template
-This repository provides a template you can use in your GitHub hosted MATLAB project, to leverage GitHub Codespaces.
-When integrated into your project you will be able to launch & access MATLAB directly in your browser, by clicking on "Open in Codespaces" inside your repository. 
+# MATLAB Codespaces
+This repository provides multiple `devcontainer.json` templates to enable the usage of MATLAB from GitHub Codespaces in your GitHub hosted MATLAB project.
 
-# How to Use
+There are multiple ways with which MATLAB can be made available in a Codespace, and they are showcased the following branches of this repository.
 
-Integrate the `.devcontainer` folder in this repository into your repository.
+| Branch Name | Showcases usage of | Click to start Codespace |
+|--|--|--|
+|[mathworks/matlab](https://github.com/mw-gh-integration/matlab-codespaces/tree/mathworks/matlab) | `mathworks/matlab` images available on [DockerHub](https://hub.docker.com/r/mathworks/matlab).|  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=mathworks%2Fmatlab&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json)|
+|[matlab/dockerfile](https://github.com/mw-gh-integration/matlab-codespaces/tree/matlab/dockerfile)| Dockerfiles that create images with MATLAB installed. | [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=matlab%2Fdockerfile&repo=345968540&skip_quickstart=true&template=false) |
+|[matlab/features](https://github.com/mw-gh-integration/matlab-codespaces/tree/matlab/features) | `mathworks/devcontainer-features` to install MATLAB and other products | [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=matlab%2Ffeatures&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json) |
+|[matlab/jupyter](https://github.com/mw-gh-integration/matlab-codespaces/tree/matlab/jupyter) | The [MATLAB Integration for Juptyer](https://github.com/mathworks-ref-arch/matlab-integration-for-jupyter) | [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=matlab%2Fjupyter&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json)|
 
-This repository contains a sample `.devcontainer` configuration which you can use 
-to launch a MATLAB environment and execute your repository's code.  
+Each branch contains one or more examples of `devcontainer.json` files that showcase different ways to include MALTAB into an container.
 
-## Integration into new Repositories
-Click on the green "Use this template" button, on the top of this page.
-Follow the onscreen instructions to create a new repository with files and folder structure from this repository pre-populated.
+Navigate to your branch of choice and explore the `.devcontainer` folder for examples.
 
-# Testing with Codespaces
-* Click on the "Open with Codespaces" menu item, found under the "Code" icon.
-* After some installation, you will be presented with the MATLAB web-desktop.
-* If your browser blocks pop-ups, you will be prompted by the terminal in VSCode to open up http://localhost:8888 to access the web-desktop.
+Find the `devcontainer.json` configuration that best suits your needs and include it into your GitHub repository.
 
-# Testing without the use of Codespaces
-* Clone the repository
-* Navigate the the `.devcontainer` folder
-* Execute the following command to create the image using default values.
-  ```
-  docker build -t matlab-image .
-  ```
+## Additional Reading
 
-* Use `build-args` if you wish to specify custom build arguments. Like shown below:
-  ```
-  docker build -t matlab-image --build-arg "USERNAME=yourUserName" --build-arg "REPOSITORY_NAME=matlab-codespaces" --build-arg "PRODUCTS='MATLAB, Datafeed Toolbox'" .
-  ```
-
-* Upon successful build, you can run the container by: 
-  ```
-  docker run -it -p 8888:8888 matlab-image
-  ```
-* Access MATLAB by navigating to `http://localhost:8888`, where `localhost` can be replaced with the name of the machine on which docker is running.
-
-# Configuration Points
-
-The following fields can be configured in `.devcontainer/devcontainer.json`:
-```
-name : <Display name of the container>
-```
-
-```
-REPOSITORY_NAME : "<One word Repository-name, must match your external facing repository name.>"
-```
-*REPOSITORY_NAME can be deprecated once Codespaces support* [**${containerWorkspaceFolder}**](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_variables-in-devcontainerjson)
-
-```
-USERNAME : <Desired username on launched container>
-```
-
-```
-"PRODUCTS": "Comma separated list of MATLAB products to be installed"
-```
-for example:
-```
-"PRODUCTS": "MATLAB, Datafeed Toolbox"
-```
-
+* [GitHub Codespaces Overview](https://docs.github.com/en/codespaces/overview)
+* [Development Container Specification](https://containers.dev/implementors/spec/)
+* [Development Container Features](https://github.com/devcontainers/features/)
+* [Setting Default Editor](https://docs.github.com/en/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces)
