@@ -1,4 +1,4 @@
-# MATLAB Codespaces
+# Using MATLAB on GitHub Codespaces
 
 This repository showcases various flavors of configuring your `devcontainer.json` to create [devcontainers](https://containers.dev/) and/or running them in GitHub Codespaces.
 
@@ -6,12 +6,12 @@ Listed below are various `devcontainer.json` configurations from to choose from 
 
 ## Using the mathworks/matlab Docker Hub Image
 
-Use this configuration file to start a devcontainer with MATLAB R2023b available within it.
+Use this configuration file to start a devcontainer with MATLAB R2024a available within it.
 
 ```json
 {
   "name": "MATLAB",
-  "image": "mathworks/matlab:r2023b",
+  "image": "mathworks/matlab:r2024a",
   "waitFor": "updateContentCommand",
   "updateContentCommand": {
     // installing GIT
@@ -53,7 +53,7 @@ The `postStartCommand` and the `onAutoForward` start the `matlab-proxy` and open
 
 * NOTE: Based on your systems configuration it may be necessary to click on the link presented in the VSCode terminal to start the browser session.
 
-Navigate to the ["mathworks/matlab"](https://github.com/mw-gh-integration/matlab-codespaces/tree/mathworks/matlab) branch of this repository to view the configuration files for various releases of MATLAB.
+Navigate to the ["mathworks/matlab"](https://github.com/mathworks/matlab-codespaces/tree/mathworks/matlab) branch of this repository to view the configuration files for various releases of MATLAB.
 
 Click on [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=mathworks%2Fmatlab&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json) to select the MATLAB release you would like to open on GitHub Codespaces.
 
@@ -74,25 +74,25 @@ For example a `devcontainer.json` configuration that installs the feature based 
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/mw-gh-integration/devcontainer-features/matlab:0": {}
+        "ghcr.io/mathworks/devcontainer-features/matlab:0": {}
     }
 }
 ```
 
 Additionally, use `options` to customize the default installation behavior.
 The example configuration below installs:
-* MATLAB `R2023a` instead of the default `R2023b`
+* MATLAB `R2023a` instead of the default `R2024a`
 * Additional toolboxes
 
 ```json
 "features": {
-    "ghcr.io/mw-gh-integration/devcontainer-features/matlab": {
+    "ghcr.io/mathworks/devcontainer-features/matlab": {
         "release": "r2023a",
         "products": "MATLAB Symbolic_Math_Toolbox"
     }
 }
 ```
-Navigate to the ["mathworks/features"](https://github.com/mw-gh-integration/matlab-codespaces/tree/mathworks/features) branch of this repository to view additional examples of configuration files.
+Navigate to the ["mathworks/features"](https://github.com/mathworks/matlab-codespaces/tree/mathworks/features) branch of this repository to view additional examples of configuration files.
 
 Try them out by, clicking on [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=matlab%2Ffeatures&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json) and selecting from one of the example configurations.
 
@@ -123,10 +123,10 @@ There are multiple ways with which MATLAB can be made available in a Codespace, 
 
 | Branch Name | Showcases usage of | Click to start Codespace |
 |--|--|--|
-|[mathworks/matlab](https://github.com/mw-gh-integration/matlab-codespaces/tree/mathworks/matlab) | `mathworks/matlab` images available on [DockerHub](https://hub.docker.com/r/mathworks/matlab).|  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=mathworks%2Fmatlab&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json)|
-|[matlab/dockerfile](https://github.com/mw-gh-integration/matlab-codespaces/tree/matlab/dockerfile)| Dockerfiles that create images with MATLAB installed. | [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=matlab%2Fdockerfile&repo=345968540&skip_quickstart=true&template=false) |
-|[matlab/features](https://github.com/mw-gh-integration/matlab-codespaces/tree/matlab/features) | `mathworks/devcontainer-features` to install MATLAB and other products | [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=matlab%2Ffeatures&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json) |
-|[matlab/jupyter](https://github.com/mw-gh-integration/matlab-codespaces/tree/matlab/jupyter) | The [MATLAB Integration for Juptyer](https://github.com/mathworks-ref-arch/matlab-integration-for-jupyter) | [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=matlab%2Fjupyter&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json)|
+|[mathworks/matlab](https://github.com/mathworks/matlab-codespaces/tree/mathworks/matlab) | `mathworks/matlab` images available on [DockerHub](https://hub.docker.com/r/mathworks/matlab).|  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=mathworks%2Fmatlab&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json)|
+|[matlab/dockerfile](https://github.com/mathworks/matlab-codespaces/tree/matlab/dockerfile)| Dockerfiles that create images with MATLAB installed. | [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=matlab%2Fdockerfile&repo=345968540&skip_quickstart=true&template=false) |
+|[matlab/features](https://github.com/mathworks/matlab-codespaces/tree/matlab/features) | `mathworks/devcontainer-features` to install MATLAB and other products | [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=matlab%2Ffeatures&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json) |
+|[matlab/jupyter](https://github.com/mathworks/matlab-codespaces/tree/matlab/jupyter) | The [MATLAB Integration for Juptyer](https://github.com/mathworks-ref-arch/matlab-integration-for-jupyter) | [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=matlab%2Fjupyter&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json)|
 
 Each branch contains one or more examples of `devcontainer.json` files that showcase different ways to include MALTAB into an container.
 

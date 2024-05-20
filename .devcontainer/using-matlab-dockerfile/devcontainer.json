@@ -1,0 +1,26 @@
+{
+    "name": "Using matlab-dockerfile",
+    "build": {
+        // See: https://github.com/mathworks-ref-arch/matlab-dockerfile
+        "dockerfile": "Dockerfile",
+        "args": {
+            "MATLAB_RELEASE": "r2024a",
+            "MATLAB_PRODUCT_LIST": "MATLAB Symbolic_Math_Toolbox"
+        }
+    },
+    "hostRequirements": {
+        "cpus": 4
+    },
+    // Comment out the rest of this file if you do not want to use MATLAB in a browser
+    "portsAttributes": {
+        "8888": {
+            "label": "MATLAB",
+            "onAutoForward": "openBrowser"
+        }
+    },
+    "waitFor": "updateContentCommand",
+    "updateContentCommand": {
+        "install-git-and-proxy": "sudo apt-get update && sudo apt-get install --no-install-recommends -y git python3 python3-pip xvfb && sudo python3 -m pip install --upgrade matlab-proxy"
+    },
+    "postStartCommand": "env MWI_APP_PORT=8888 matlab-proxy-app"
+}
