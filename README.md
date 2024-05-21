@@ -52,7 +52,7 @@ The `postStartCommand` starts [matlab-proxy](https://github.com/mathworks/matlab
 
 * NOTE: Based on your system configuration it may be necessary to click on the link presented in the VSCode terminal to start the browser session.
 
-Click [here](./.devcontainer/devcontainer.json) to view example usage, or [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mathworks-ref-arch/matlab-codespaces)
+Click [here](./.devcontainer/devcontainer.json) to view example usage, or [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/mathworks-ref-arch/matlab-codespaces?template=false&devcontainer_path=.devcontainer%2Fdevcontainer.json)
 
 ## Using devcontainer features
 
@@ -91,7 +91,7 @@ The example configuration below installs:
 }
 ```
 
-Click [here](./.devcontainer/using-devcontainer-feature/) to view example usage, or [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mathworks-ref-arch/matlab-codespaces)
+Click [here](./.devcontainer/using-devcontainer-feature/) to view example usage, or [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/mathworks-ref-arch/matlab-codespaces?template=false&devcontainer_path=.devcontainer%2Fusing-devcontainer-feature%2Fdevcontainer.json)
 
 ## Using MATLAB with Jupyter
 
@@ -150,7 +150,7 @@ The [MATLAB Integration for Jupyter](https://github.com/mathworks-ref-arch/matla
   }
   ```
 
-Click [here](./.devcontainer/using-matlab-with-jupyter/) to view example usage, or [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mathworks-ref-arch/matlab-codespaces)
+Click [here](./.devcontainer/using-matlab-with-jupyter/) to view example usage, or [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/mathworks-ref-arch/matlab-codespaces?template=false&devcontainer_path=.devcontainer%2Fusing-matlab-with-jupyter%2Fdevcontainer.json)
 
 ## Using custom Dockerfile
 
@@ -184,7 +184,7 @@ The following configuration file showcases a configuration which enables the usa
 }
 ```
 Click [here](./.devcontainer/using-matlab-dockerfile/) to view example usage, or 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mathworks-ref-arch/matlab-codespaces)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/mathworks-ref-arch/matlab-codespaces?template=false&devcontainer_path=.devcontainer%2Fusing-matlab-dockerfile%2Fdevcontainer.json)
 
 ## Additional Reading
 
