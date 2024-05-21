@@ -64,7 +64,7 @@ You may learn about Features at :
 
 ### mathworks/devcontainer-features
 
-The [mathworks/devcontainer-features](https://github.com/mathworks/devcontainer-features) repository publishes the "matlab" feature.
+The [mathworks/devcontainer-features](https://github.com/mathworks/devcontainer-features) repository publishes the `matlab` feature.
 
 It provides the ability to install MATLAB and its supporting products through its feature specification.
 For example a `devcontainer.json` configuration that installs the feature based on its defaults on a `ubuntu` base image is:
@@ -191,4 +191,4 @@ Click [here](./.devcontainer/using-matlab-dockerfile/) to view example usage, or
 * [GitHub Codespaces Overview](https://docs.github.com/en/codespaces/overview)
 * [Development Container Specification](https://containers.dev/implementors/spec/)
 * [Development Container Features](https://github.com/devcontainers/features/)
-* [Setting Default Editor](https://docs.github.com/en/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces)
+* [Setting Default Editor (VSCode, JupyterLab ...)](https://docs.github.com/en/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces)
