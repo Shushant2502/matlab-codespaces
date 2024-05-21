@@ -57,17 +57,16 @@ Click [here](./.devcontainer/devcontainer.json) to view example usage, or [![Ope
 ## Using devcontainer features
 
 ### Introduction
-'Features' are self-contained units of installation code and development container configuration. Features are designed to install atop a wide-range of base container images.
+***Features*** are self-contained units of installation code and development container configuration. Features are designed to install atop a wide-range of base container images.
 You may learn about Features at :
 * [containers.dev](containers.dev), which is the website for the dev container specification
 * The GitHub repository for [devcontainers/features](https://github.com/devcontainers/features)
 
 ### mathworks/devcontainer-features
 
-The [mathworks/devcontainer-features](https://github.com/mathworks/devcontainer-features) repository publishes the `matlab` feature.
+The [mathworks/devcontainer-features](https://github.com/mathworks/devcontainer-features) repository publishes the `matlab` feature to easily install MATLAB and its supporting products.
 
-It provides the ability to install MATLAB and its supporting products through its feature specification.
-For example a `devcontainer.json` configuration that installs the feature based on its defaults on a `ubuntu` base image is:
+This configuration installs the `matlab` feature with its default options on a `ubuntu` base image:
 ```json
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
@@ -77,7 +76,8 @@ For example a `devcontainer.json` configuration that installs the feature based 
 }
 ```
 
-Additionally, use [Options](https://github.com/mathworks/devcontainer-features/tree/main/src/matlab#options) to customize the default installation behavior.
+Use [Options](https://github.com/mathworks/devcontainer-features/tree/main/src/matlab#options) to customize the default installation behavior.
+
 The example configuration below installs:
 * MATLAB `R2023a` instead of the default `R2024a`
 * Additional toolboxes
