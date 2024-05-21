@@ -14,16 +14,17 @@ Use this configuration file to start a devcontainer with MATLAB R2024a available
   "image": "mathworks/matlab:r2024a",
   "waitFor": "updateContentCommand",
   "updateContentCommand": {
-    // installing GIT
     "install-git": "sudo apt-get update && sudo apt-get install git -y",
   },
 }
 ```
 
-### Run MATLAB and interact with it via a web browser
+For more information about the `mathworks/matlab`, see its listing on [DockerHub](https://hub.docker.com/r/mathworks/matlab).
+
+## Run MATLAB and interact with it via a web browser
 
 This configuration adds the capability to start [matlab-proxy](https://github.com/mathworks/matlab-proxy) and interact with MATLAB through the browser.
-Use this configuration if you want to interact with the MATLAB Desktop through the browser.
+Use this configuration to interact with the MATLAB Desktop through the browser.
 
 ```json
 {
@@ -40,23 +41,18 @@ Use this configuration if you want to interact with the MATLAB Desktop through t
   },
   "waitFor": "updateContentCommand",
   "updateContentCommand": {
-    // installing GIT
     "install-git": "sudo apt-get update && sudo apt-get install git -y",
     "update-matlab-proxy": "sudo python3 -m pip install --upgrade pip matlab-proxy"
   },
-  // Only works from R2022a onwards
   "postStartCommand": "run.sh -browser"
 }
 ```
 
-The `postStartCommand` and the `onAutoForward` start the `matlab-proxy` and open a browser tab.
+The `postStartCommand` starts [matlab-proxy](https://github.com/mathworks/matlab-proxy) and the `onAutoForward` opens a browser tab running MATLAB.
 
-* NOTE: Based on your systems configuration it may be necessary to click on the link presented in the VSCode terminal to start the browser session.
+* NOTE: Based on your system configuration it may be necessary to click on the link presented in the VSCode terminal to start the browser session.
 
-Navigate to the ["mathworks/matlab"](https://github.com/mathworks/matlab-codespaces/tree/mathworks/matlab) branch of this repository to view the configuration files for various releases of MATLAB.
-
-Click on [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=mathworks%2Fmatlab&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json) to select the MATLAB release you would like to open on GitHub Codespaces.
-
+Click [here](./.devcontainer/devcontainer.json) to view example usage, or [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mathworks-ref-arch/matlab-codespaces)
 
 ## Using devcontainer features
 
@@ -68,18 +64,20 @@ You may learn about Features at :
 
 ### mathworks/devcontainer-features
 
-The "matlab" feature provides the ability to install MATLAB and its supporting products through its feature specification.
+The [mathworks/devcontainer-features](https://github.com/mathworks/devcontainer-features) repository publishes the "matlab" feature.
+
+It provides the ability to install MATLAB and its supporting products through its feature specification.
 For example a `devcontainer.json` configuration that installs the feature based on its defaults on a `ubuntu` base image is:
 ```json
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/mathworks/devcontainer-features/matlab:0": {}
+        "ghcr.io/mathworks/devcontainer-features/matlab": {}
     }
 }
 ```
 
-Additionally, use `options` to customize the default installation behavior.
+Additionally, use [Options](https://github.com/mathworks/devcontainer-features/tree/main/src/matlab#options) to customize the default installation behavior.
 The example configuration below installs:
 * MATLAB `R2023a` instead of the default `R2024a`
 * Additional toolboxes
@@ -92,47 +90,101 @@ The example configuration below installs:
     }
 }
 ```
-Navigate to the ["mathworks/features"](https://github.com/mathworks/matlab-codespaces/tree/mathworks/features) branch of this repository to view additional examples of configuration files.
 
-Try them out by, clicking on [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=matlab%2Ffeatures&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json) and selecting from one of the example configurations.
+Click [here](./.devcontainer/using-devcontainer-feature/) to view example usage, or [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mathworks-ref-arch/matlab-codespaces)
 
-#### Available Options
-Listed below are the other options that are available for the MATLAB feature.
+## Using MATLAB with Jupyter
 
-| Options Id | Description | Type | Default Value |
-|-----|-----|-----|-----|
-| release | MATLAB Release to install. | string | r2023b |
-| products | Products to install, specified as a list of product names separated by spaces. </br> See [MPM.md](https://github.com/mathworks-ref-arch/matlab-dockerfile/blob/main/MPM.md#product-installation-options) for more information.| string | MATLAB |
-| doc | Flag to install documentation and examples. (R2022b and earlier releases) | boolean | false |
-| installGpu | Skips installation of GPU libraries when you install Parallel Computing Toolbox. (R2023a and later releases) | boolean | false |
-| destination | Full path to the installation destination folder. </br> test | string | /opt/matlab/$RELEASE |
-| installMatlabProxy | Installs matlab-proxy and its dependencies. (R2020b and later releases) | boolean | false |
-| installJupyterMatlabProxy | Installs jupyter-matlab-proxy and its dependencies. (R2020b and later releases) | boolean | false |
-| installMatlabEngineForPython | Installs the MATLAB Engine for Python if the destination option is set correctly. | boolean | false |
-| startInDesktop | Starts matlab-proxy on container start. | string | false |
-| networkLicenseManager | MATLAB will use the specified Network License Manager. | string | - |
-| skipMATLABInstall | Set to true if you dont want to install MATLAB. Useful if you only want to install the proxy products. | boolean | false |
+The [MATLAB Integration for Jupyter](https://github.com/mathworks-ref-arch/matlab-integration-for-juptyer) can be used from within a codespace by:
+* Using the prebuilt image with the MATLAB Integration for Juptyer:
+  ```json
+  {
+  "name": "R2024a MATLAB Integration for Juptyer Prebuilt Image",
+  "image": "ghcr.io/mathworks-ref-arch/matlab-integration-for-jupyter/jupyter-matlab-notebook:r2024a",
+  "hostRequirements": {
+    "cpus": 4
+    }
+  }
+  ```
 
-View the latest information on the [mathworks/devcontainer-features](github.com/mathworks/devcontainer-features/blob/main/src/matlab/README.md) repository.
+* Or, using the [Dockerfile]() to customize the image as shown:
+  ```json
+  {
+      "name": "Dockerfile based MATLAB Integration for Jupyter",
+      "build": {
+          "dockerfile": "Dockerfile",
+          "args": {
+              "MATLAB_RELEASE": "r2023b",
+              "MATLAB_PRODUCT_LIST": "MATLAB Symbolic_Math_Toolbox",
+              "PYTHON_VERSION": "3.10"
+          }
+      },
+      "hostRequirements": {
+          "cpus": 4
+      }
+  }
+  ```
 
-## Other interesting applications
+* Or, using [devcontainer-features](https://github.com/mathworks/devcontainer-features/tree/main/src/matlab) to install MATLAB, Python, JupyterLab & the MATLAB Integration for Jupyter
+  ```json
+  {
+      "name": "Using MATLAB With Jupyter",
+      "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+      "hostRequirements": {
+          "cpus": 4
+      },
+      "features": {
+          "ghcr.io/mathworks/devcontainer-features/matlab": {
+              "release": "r2024a",
+              "products": "MATLAB Symbolic_Math_Toolbox",
+              "installJupyterMatlabProxy": true,
+              "installMatlabEngineForPython": true
+          },
+          "ghcr.io/devcontainers/features/python": {
+              "version": "os-provided",
+              "installJupyterlab": true,
+              "configureJupyterlabAllowOrigin": "*"
+          }
+      }
+      ,"containerUser": "codespace"
+  }
+  ```
 
-This repository provides multiple `devcontainer.json` templates to enable the usage of MATLAB from GitHub Codespaces in your GitHub hosted MATLAB project.
+Click [here](./.devcontainer/using-matlab-with-jupyter/) to view example usage, or [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mathworks-ref-arch/matlab-codespaces)
 
-There are multiple ways with which MATLAB can be made available in a Codespace, and they are showcased the following branches of this repository.
+## Using custom Dockerfile
 
-| Branch Name | Showcases usage of | Click to start Codespace |
-|--|--|--|
-|[mathworks/matlab](https://github.com/mathworks/matlab-codespaces/tree/mathworks/matlab) | `mathworks/matlab` images available on [DockerHub](https://hub.docker.com/r/mathworks/matlab).|  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=mathworks%2Fmatlab&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json)|
-|[matlab/dockerfile](https://github.com/mathworks/matlab-codespaces/tree/matlab/dockerfile)| Dockerfiles that create images with MATLAB installed. | [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=matlab%2Fdockerfile&repo=345968540&skip_quickstart=true&template=false) |
-|[matlab/features](https://github.com/mathworks/matlab-codespaces/tree/matlab/features) | `mathworks/devcontainer-features` to install MATLAB and other products | [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=matlab%2Ffeatures&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json) |
-|[matlab/jupyter](https://github.com/mathworks/matlab-codespaces/tree/matlab/jupyter) | The [MATLAB Integration for Juptyer](https://github.com/mathworks-ref-arch/matlab-integration-for-jupyter) | [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=matlab%2Fjupyter&repo=345968540&skip_quickstart=true&template=false&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json)|
+The following configuration file showcases a configuration which enables the usage of the `mathworks-ref-arch/matlab-dockerfile` [Dockerfile]() to build an image with MATLAB and access it from a browser using `matlab-proxy`
 
-Each branch contains one or more examples of `devcontainer.json` files that showcase different ways to include MALTAB into an container.
-
-Navigate to your branch of choice and explore the `.devcontainer` folder for examples.
-
-Find the `devcontainer.json` configuration that best suits your needs and include it into your GitHub repository.
+```json
+{
+    "name": "Using matlab-dockerfile",
+    "build": {
+        // See: https://github.com/mathworks-ref-arch/matlab-dockerfile
+        "dockerfile": "Dockerfile",
+        "args": {
+            "MATLAB_RELEASE": "r2024a",
+            "MATLAB_PRODUCT_LIST": "MATLAB Symbolic_Math_Toolbox"
+        }
+    },
+    "hostRequirements": {
+        "cpus": 4
+    },
+    "portsAttributes": {
+        "8888": {
+            "label": "MATLAB",
+            "onAutoForward": "openBrowser"
+        }
+    },
+    "waitFor": "updateContentCommand",
+    "updateContentCommand": {
+        "install-git-and-proxy": "sudo apt-get update && sudo apt-get install --no-install-recommends -y git python3 python3-pip xvfb && sudo python3 -m pip install --upgrade matlab-proxy"
+    },
+    "postStartCommand": "env MWI_APP_PORT=8888 MWI_ENABLE_TOKEN_AUTH=False matlab-proxy-app"
+}
+```
+Click [here](./.devcontainer/using-matlab-dockerfile/) to view example usage, or 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mathworks-ref-arch/matlab-codespaces)
 
 ## Additional Reading
 
