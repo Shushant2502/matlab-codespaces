@@ -1,8 +1,13 @@
 # Using MATLAB on GitHub Codespaces
 
-This repository showcases various flavors of configuring your `devcontainer.json` to create [devcontainers](https://containers.dev/) and/or running them in GitHub Codespaces.
+This repository showcases `devcontainer.json` configurations to use MATLAB&reg; with [GitHub&trade;Codespaces](github.com/features/codespaces) or [Development Containers](https://containers.dev/).
 
-Listed below are various `devcontainer.json` configurations from to choose from based on your needs:
+### Background
+GitHub Codespaces enable the creation of containerized development environments with software preconfigured for use with the contents of a repository. Codespaces are based on Development Containers aka `devcontainers`.
+
+A `devcontainer.json` file can be added to your repository to configure its behavior in Codespaces/DevContainers. See [Dev Container Reference](https://containers.dev/implementors/json_reference/) for more information.
+
+Listed below are various `devcontainer.json` configurations from to choose from:
 
 ## Using the mathworks/matlab Docker Hub Image
 
