@@ -74,7 +74,7 @@ You can add functionality to your dev containers by adding self-contained units 
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/mathworks/devcontainer-features/matlab": {}
+        "ghcr.io/prabhakk-mw/devcontainer-features/matlab": {}
     }
 }
 ```
@@ -85,7 +85,7 @@ This configuration installs the MATLAB Feature on a `ubuntu` base image, with de
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/mathworks/devcontainer-features/matlab": {
+        "ghcr.io/prabhakk-mw/devcontainer-features/matlab": {
             "release": "r2023a",
             "products": "MATLAB Symbolic_Math_Toolbox"
         }
@@ -147,7 +147,7 @@ To use MATLAB in JupyterLab, running in codespaces, you can configure your dev c
           "cpus": 4
       },
       "features": {
-          "ghcr.io/mathworks/devcontainer-features/matlab": {
+          "ghcr.io/prabhakk-mw/devcontainer-features/matlab": {
               "release": "r2024a",
               "products": "MATLAB Symbolic_Math_Toolbox",
               "installJupyterMatlabProxy": true,
