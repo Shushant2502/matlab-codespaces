@@ -16,9 +16,9 @@
             "installJupyterlab": true,
             "configureJupyterlabAllowOrigin": "*"
         }
-    },
-    "containerUser": "vscode",
-    "containerEnv": {
-        "PATH": "/home/vscode/.local/bin:$PATH"
     }
+    // ,"containerUser": "vscode",
+    // "containerEnv": {
+    //     "PATH": "/home/vscode/.local/bin:$PATH"
+    // }
 }
