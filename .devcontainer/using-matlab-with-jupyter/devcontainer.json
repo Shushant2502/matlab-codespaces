@@ -16,6 +16,9 @@
             "installJupyterlab": true,
             "configureJupyterlabAllowOrigin": "*"
         }
+    },
+    "containerUser": "codespace",
+    "containerEnv": {
+        "PATH": "/home/codespace/.local/bin:$PATH"
     }
-    // ,"containerUser": "codespace"
 }
