@@ -198,7 +198,7 @@ To run a dev container using the [MATLAB Dockerfile](https://github.com/mathwork
     "updateContentCommand": {
         "install-git-and-proxy": "sudo apt-get update && sudo apt-get install --no-install-recommends -y git python3 python3-pip xvfb && sudo python3 -m pip install --upgrade matlab-proxy"
     },
-    "postStartCommand": "env MWI_APP_PORT=8888 MWI_ENABLE_TOKEN_AUTH=False matlab-proxy-app"
+    "postStartCommand": "env MWI_APP_PORT=8888 matlab-proxy-app"
 }
 ```
 
