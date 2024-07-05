@@ -17,8 +17,8 @@
             "configureJupyterlabAllowOrigin": "*"
         }
     },
-    "containerUser": "codespace",
+    "containerUser": "vscode",
     "containerEnv": {
-        "PATH": "/home/codespace/.local/bin:$PATH"
+        "PATH": "/home/vscode/.local/bin:$PATH"
     }
 }
