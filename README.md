@@ -63,12 +63,12 @@ Note: Depending on your system configuration, you might need to click on the lin
 
 You can run the dev container configured above in Codespaces:
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/mathworks-ref-arch/matlab-codespaces?template=false&devcontainer_path=.devcontainer%2Fdevcontainer.json)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/prabhakk-mw/matlab-codespaces?template=false&devcontainer_path=.devcontainer%2Fdevcontainer.json)
 
 
 ## Using the MATLAB Devcontainer Feature
 
-You can add functionality to your dev containers by adding self-contained units of code called [Features (GitHub)](https://github.com/devcontainers/features). For example, to install MATLAB `R2024a` in your dev container with the [MATLAB Feature (GitHub)](https://github.com/mathworks/devcontainer-features), use this `devcontainer.json` configuration:
+You can add functionality to your dev containers by adding self-contained units of code called [Features (GitHub)](https://github.com/devcontainers/features). For example, to install MATLAB `R2024a` in your dev container with the [MATLAB Feature (GitHub)](https://github.com/prabhakk-mw/devcontainer-features), use this `devcontainer.json` configuration:
 
 ```json
 {
@@ -79,7 +79,7 @@ You can add functionality to your dev containers by adding self-contained units 
 }
 ```
 
-This configuration installs the MATLAB Feature on a `ubuntu` base image, with default settings. To customize the settings, modify the [MATLAB Feature Options (GitHub)](https://github.com/mathworks/devcontainer-features/tree/main/src/matlab#options). For example, to install MATLAB `R2023a` instead of `R2024a`, as well as the Symbolic Math Toolbox, use this configuration:
+This configuration installs the MATLAB Feature on a `ubuntu` base image, with default settings. To customize the settings, modify the [MATLAB Feature Options (GitHub)](https://github.com/prabhakk-mw/devcontainer-features/tree/main/src/matlab#options). For example, to install MATLAB `R2023a` instead of `R2024a`, as well as the Symbolic Math Toolbox, use this configuration:
 
 ```json
 {
@@ -95,7 +95,7 @@ This configuration installs the MATLAB Feature on a `ubuntu` base image, with de
 
 You can run this dev container in Codespaces: 
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/mathworks-ref-arch/matlab-codespaces?template=false&devcontainer_path=.devcontainer%2Fusing-devcontainer-feature%2Fdevcontainer.json)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/prabhakk-mw/matlab-codespaces?template=false&devcontainer_path=.devcontainer%2Fusing-devcontainer-feature%2Fdevcontainer.json)
 
 
 
@@ -136,7 +136,7 @@ To use MATLAB in JupyterLab, running in codespaces, you can configure your dev c
   }
   ```
 
-3. Use the MATLAB Feature and customize the [MATLAB Feature Options (GitHub)](https://github.com/mathworks/devcontainer-features/tree/main/src/matlab#options) to install MATLAB, Python, JupyterLab, and the MATLAB Integration for Jupyter. For example:
+3. Use the MATLAB Feature and customize the [MATLAB Feature Options (GitHub)](https://github.com/prabhakk-mw/devcontainer-features/tree/main/src/matlab#options) to install MATLAB, Python, JupyterLab, and the MATLAB Integration for Jupyter. For example:
 
 
   ```json
@@ -165,7 +165,7 @@ To use MATLAB in JupyterLab, running in codespaces, you can configure your dev c
 
 You can run the dev container configured above in Codespaces: 
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/mathworks-ref-arch/matlab-codespaces?template=false&devcontainer_path=.devcontainer%2Fusing-matlab-with-jupyter%2Fdevcontainer.json)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/prabhakk-mw/matlab-codespaces?template=false&devcontainer_path=.devcontainer%2Fusing-matlab-with-jupyter%2Fdevcontainer.json)
 
 
 
@@ -204,7 +204,7 @@ To run a dev container using the [MATLAB Dockerfile](https://github.com/mathwork
 
 You can run this dev container in Codespaces: 
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/mathworks-ref-arch/matlab-codespaces?template=false&devcontainer_path=.devcontainer%2Fusing-matlab-dockerfile%2Fdevcontainer.json)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/prabhakk-mw/matlab-codespaces?template=false&devcontainer_path=.devcontainer%2Fusing-matlab-dockerfile%2Fdevcontainer.json)
 
 ## Related Links
 
